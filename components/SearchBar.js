@@ -1,33 +1,33 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { useRouter } from "next/router";
+import { useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function SearchBar() {
-  const [username, setUsername] = useState("");
-  const [error, setError] = useState("");
-  const router = useRouter();
+  const [username, setUsername] = useState("")
+  const [error, setError] = useState("")
+  const router = useRouter()
 
   function handleSubmit() {
-    const cleaned = username.trim();
+    const cleaned = username.trim()
 
     if (!cleaned) {
-      setError("Please enter a username");
-      return;
+      setError("Please enter a username")
+      return
     }
 
-    const valid = /^[a-zA-Z0-9-]+$/.test(cleaned);
+    const valid = /^[a-zA-Z0-9-]+$/.test(cleaned)
     if (!valid) {
-      setError("Invalid Github username");
-      return;
+      setError("Invalid GitHub username")
+      return
     }
 
-    setError("");
-    router.push(`/${cleaned}`);
+    setError("")
+    router.push(`/${cleaned}`)
   }
 
   function handleKeyDown(e) {
-    if (e.key === "Enter") handleSubmit();
+    if (e.key === "Enter") handleSubmit()
   }
 
   return (
@@ -42,5 +42,5 @@ export default function SearchBar() {
       <button onClick={handleSubmit}>Generate</button>
       {error && <p>{error}</p>}
     </div>
-  );
+  )
 }
