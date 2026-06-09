@@ -1,6 +1,7 @@
 import ProfileCard from "@/components/ProfileCard"
 import RepoGrid from "@/components/RepoGrid"
 import ShareButton from "@/components/ShareButton"
+import ContributionGraph from "@/components/ContributionGraph"
 
 export async function generateMetadata({ params }) {
   const { username } = await params
@@ -19,10 +20,10 @@ export async function generateMetadata({ params }) {
 
   return {
     title: `${profile.name || profile.username} — GitFolio`,
-    description: `${profile.followers.toLocaleString()} followers · ${profile.publicRepos} repos · ${profile.bio || "GitHub developer portfolio"}`,
+    description: `${profile.followers.toLocaleString("en-US")} followers · ${profile.publicRepos} repos · ${profile.bio || "GitHub developer portfolio"}`,
     openGraph: {
       title: `${profile.name || profile.username} — GitFolio`,
-      description: `${profile.followers.toLocaleString()} followers · ${profile.publicRepos} repos`,
+      description: `${profile.followers.toLocaleString("en-US")} followers · ${profile.publicRepos} repos`,
       images: [
         {
           url: `${process.env.NEXT_PUBLIC_BASE_URL}/api/og?username=${username}`,
@@ -143,6 +144,11 @@ export default async function PortfolioPage({ params }) {
         {/* Profile Card */}
         <div style={{ marginBottom: "40px" }}>
           <ProfileCard profile={data.profile} languages={data.languages} />
+        </div>
+
+        {/* Contribution Graph */}
+        <div style={{ marginBottom: "40px" }}>
+          <ContributionGraph contributions={data.contributions} />
         </div>
 
         {/* Repos Grid */}

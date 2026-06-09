@@ -131,7 +131,7 @@ export default function RepoCard({ repo, index }) {
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8b949e" strokeWidth="2">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
           </svg>
-          <span style={{ fontSize: "12px", color: "#8b949e" }}>{repo.stars.toLocaleString()}</span>
+          <span style={{ fontSize: "12px", color: "#8b949e" }}>{repo.stars.toLocaleString("en-US")}</span>
         </div>
 
         {repo.forks > 0 && (
@@ -140,7 +140,7 @@ export default function RepoCard({ repo, index }) {
               <circle cx="12" cy="18" r="3" /><circle cx="6" cy="6" r="3" /><circle cx="18" cy="6" r="3" />
               <path d="M18 9v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9" /><line x1="12" y1="12" x2="12" y2="15" />
             </svg>
-            <span style={{ fontSize: "12px", color: "#8b949e" }}>{repo.forks.toLocaleString()}</span>
+            <span style={{ fontSize: "12px", color: "#8b949e" }}>{repo.forks.toLocaleString("en-US")}</span>
           </div>
         )}
 

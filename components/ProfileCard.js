@@ -212,9 +212,9 @@ export default function ProfileCard({ profile, languages }) {
           }}
         >
           {[
-            { label: "Followers", value: profile.followers.toLocaleString() },
-            { label: "Following", value: profile.following.toLocaleString() },
-            { label: "Repositories", value: profile.publicRepos.toLocaleString() },
+            { label: "Followers", value: profile.followers.toLocaleString("en-US") },
+            { label: "Following", value: profile.following.toLocaleString("en-US") },
+            { label: "Repositories", value: profile.publicRepos.toLocaleString("en-US") },
           ].map((stat, i) => (
             <div
               key={stat.label}

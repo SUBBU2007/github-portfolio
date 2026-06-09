@@ -109,7 +109,7 @@ export default function Home() {
             }}
           >
             Enter any GitHub username and get a clean, shareable
-            developer portfolio — instantly generated from public data.
+            developer portfolio, instantly generated from public data.
           </p>
         </motion.div>
 
