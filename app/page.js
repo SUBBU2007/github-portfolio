@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import SearchBar from "@/components/SearchBar"
+import FlipText from "@/components/FlipText"
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
@@ -47,7 +48,12 @@ export default function Home() {
       />
 
       <div
-        style={{ position: "relative", zIndex: 1, width: "100%", maxWidth: "720px" }}
+        style={{
+          position: "relative",
+          zIndex: 1,
+          width: "100%",
+          maxWidth: "720px",
+        }}
         className="flex flex-col items-center gap-12"
       >
         {/* Badge */}
@@ -84,7 +90,7 @@ export default function Home() {
           {...fadeUp(0.15)}
           className="flex flex-col items-center gap-6 text-center"
         >
-          <h1
+          {/* <h1
             style={{
               fontSize: "clamp(2.8rem, 8vw, 5.5rem)",
               fontWeight: 800,
@@ -95,6 +101,23 @@ export default function Home() {
           >
             Your GitHub,{" "}
             <span className="gradient-text">beautifully</span>
+            <br />
+            presented.
+          </h1> */}
+          <h1
+            style={{
+              fontSize: "clamp(2.8rem, 8vw, 5.5rem)",
+              fontWeight: 800,
+              lineHeight: 1.05,
+              letterSpacing: "-0.03em",
+              color: "#e6edf3",
+            }}
+          >
+            Your GitHub,{" "}
+            <FlipText
+              words={["beautifully", "instantly", "effortlessly"]}
+              className="gradient-text"
+            />
             <br />
             presented.
           </h1>
@@ -108,8 +131,8 @@ export default function Home() {
               fontWeight: 400,
             }}
           >
-            Enter any GitHub username and get a clean, shareable
-            developer portfolio, instantly generated from public data.
+            Enter any GitHub username and get a clean, shareable developer
+            portfolio, instantly generated from public data.
           </p>
         </motion.div>
 
@@ -128,9 +151,11 @@ export default function Home() {
           {" · "}
           <span style={{ color: "#58a6ff", cursor: "pointer" }}>gaearon</span>
           {" · "}
-          <span style={{ color: "#58a6ff", cursor: "pointer" }}>sindresorhus</span>
+          <span style={{ color: "#58a6ff", cursor: "pointer" }}>
+            sindresorhus
+          </span>
         </motion.p>
       </div>
     </main>
-  )
+  );
 }
