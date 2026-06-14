@@ -72,7 +72,27 @@ export default async function PortfolioContent({ username }) {
 
       <div>
         <RepoGrid repos={data.topRepos} />
+
+        <div style={{ textAlign: "center", marginTop: "24px" }}>
+          <a
+            href={`/${data.profile.username}/repos`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              color: "#58a6ff",
+              fontSize: "14px",
+              textDecoration: "none",
+              padding: "10px 20px",
+              border: "1px solid #30363d",
+              borderRadius: "8px",
+              backgroundColor: "#161b22",
+            }}
+          >
+            View all {data.profile.publicRepos} repositories →
+          </a>
+        </div>
       </div>
     </>
-  )
+  );
 }

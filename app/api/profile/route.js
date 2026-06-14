@@ -15,6 +15,22 @@ function computeLanguages(repos) {
     .map(([language, count]) => ({ language, count }));
 }
 
+function computeAllRepos(repos) {
+  return repos.map((repo) => ({
+    id: repo.id,
+    name: repo.name,
+    description: repo.description,
+    language: repo.language,
+    stars: repo.stargazers_count,
+    forks: repo.forks_count,
+    url: repo.html_url,
+    homepage: repo.homepage,
+    updated_at: repo.pushed_at,
+    isFork: repo.fork,
+    isArchived: repo.archived,
+  }))
+}
+
 function computeTopRepos(repos) {
   return repos
     .filter((repo) => !repo.fork && !repo.archived)
@@ -123,6 +139,7 @@ export async function GET(request) {
     const languages = computeLanguages(repos);
     const topRepos = computeTopRepos(repos);
     const contributions = computeContributions(events);
+    const allRepos = computeAllRepos(repos)
 
     return Response.json({
       profile: {
@@ -139,6 +156,7 @@ export async function GET(request) {
       },
       languages,
       topRepos,
+      allRepos,
       contributions,
     });
   } catch (err) {
